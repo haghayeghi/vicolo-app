@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        exo: ['Exo'],
+
+      },
       colors :{
         'primary': "#434343",
         'secondary': {
@@ -18,6 +22,16 @@ module.exports = {
           '4':"#C4C4C4"
         },
       }
+    },
+
+    screens: {
+      xs: "480px",
+      ss: "620px",
+      sm: "768px",
+      md: "1060px",
+      lg: "1200px",
+      xl: "14700px",
+
     },
   },
   plugins: [],

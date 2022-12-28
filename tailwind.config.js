@@ -27,8 +27,12 @@ module.exports = {
           '1':"#FAFAFA",
           '2':"#F2F2F2",
           '3':"#E4E4E4",
-          '4':"#C4C4C4"
+          '4':"#C4C4C4",
+          '5':"#B3B3B3",
         },
+      },
+      boxShadow: {
+        'subtle': '0 1px 20px -10px rgba(0, 0, 0, 0.3)',
       }
     },
 
@@ -42,5 +46,7 @@ module.exports = {
 
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-inner-border"),
+  ],
 }

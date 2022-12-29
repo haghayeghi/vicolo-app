@@ -8,7 +8,7 @@ import BGTextClip from "./BGTextClip";
 function Header(props) {
 
   let basketColor='';
-  props.basketAmount==='0' ? basketColor=' bg-gradient-to-b from-gray-4 to-gray-5 ':basketColor='  ';
+  props.basketAmount==='0' ? basketColor=' bg-gradient-to-b from-gray-4 to-gray-5 ':basketColor='';
 
   return (
     <div id="header" className="flex flex-row h-[96px] shadow-subtle">
@@ -42,7 +42,7 @@ function Header(props) {
         </MainBtn>
         <div className="float-right flex flex-row mt-[24px] mx-6 h-[42px] w-[150px]">
           <BGTextClip className="font-semibold text-2xl pt-[1px]">|</BGTextClip>
-          <MainBtn className={basketColor + 'w-8 h-8 pt-1 px-0 ml-4 mt-[3px] text-center'} clickHandler={(e) => props.handleBasket(true)} status={'color'}>
+          <MainBtn className={`${basketColor} w-8 h-8 pt-1 pl-0 pr-0 ml-4 mt-[3px] text-center`} clickHandler={(e) => props.handleBasket(true)} status={'color'}>
           {props.basketAmount}
         </MainBtn>
          <img src={cartIcon} className="ml-2 h-[28px] mt-[6px]" alt="cart"/>

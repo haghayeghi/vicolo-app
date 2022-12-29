@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
+import Modal from "./components/Modal";
 import Basket from "./components/Basket";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
   };
 
   const [basketAmount, setbasketAmount] = useState('0');
+  
   const [showBasket, setshowBasket] = useState(false);
   const handleBasket = (showcheck) => {
     showcheck ? setshowBasket(true) :setshowBasket(false);
@@ -53,7 +55,9 @@ function App() {
       <Header basketAmount={basketAmount} handleBasket={handleBasket} handleNav={handleNavItemClick} page={page} />
       <Content page={page} />
       <Footer />
-      <Basket  show={showBasket} handleBasket={handleBasket} />
+      <Modal show={showBasket} handleBasket={handleBasket}>
+          <Basket/>
+      </Modal>
     </div>
   );
 }

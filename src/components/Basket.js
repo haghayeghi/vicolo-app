@@ -1,13 +1,17 @@
-import MainBtn from "./MainBtn";
+import BGTextClip from "./BGTextClip";
 
-const Basket = (props) => {
- return (
-  <div className={!props.show ? 'hidden' : 'absolute bg-black bg-opacity-60 h-screen w-screen bg-transparent-50'}>
-    <MainBtn className="w-8 h-8 pt-1 px-0 ml-4 mt-[3px] text-center" clickHandler={(e) => props.handleBasket(false)} status={'color'}>
-          x
-    </MainBtn>
+
+const Basket = () => {
+    
+return (
+<div className="h-[450px] w-[375px]  bg-white">
+    <div id="modalTitle" className="h-[64px]  shadow-subtle">
+        <BGTextClip className="text-2xl  text-center pt-[12px]">MY ORDER</BGTextClip>
     </div>
-);
-};
 
+</div>
+);
+    
+};
+    
 export default Basket;

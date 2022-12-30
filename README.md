@@ -1,3 +1,3 @@
 # Vicolo App
 
-Both UI/UX and FrontEnd (React.js + Tailwind CSS) is by Abbas Haghayeghi
+Both UI/UX and FrontEnd (React.js + Tailwind CSS) has done by Abbas Haghayeghi

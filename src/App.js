@@ -6,54 +6,35 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import Modal from "./components/Modal";
 import Basket from "./components/Basket";
+import {Routes, Route, useLocation} from "react-router-dom";
 
 function App() {
-  // Page Selection
-  // 1 : Home
-  // 2: Order Now
-  // 3: Menu
-  // 4: Our Story
-  // 5: Login
-  // 6: SignUp
-  const [page, setpage] = useState(1);
-  const handleNavItemClick = (item) => {
-    setpage(item);
-
-    switch (item) {
-      case 1:
-        window.history.pushState("", "Home", "/Home");
-        break;
-      case 2:
-        window.history.pushState("", "Order Now", "/Order");
-        break;
-      case 3:
-        window.history.pushState("", "Menu", "/Menu");
-        break;
-      case 4:
-        window.history.pushState("", "Our Story", "/About");
-        break;
-      case 5:
-        window.history.pushState("", "Login", "/Login");
-        break;
-      case 6:
-        window.history.pushState("", "Signup", "/Signup");
-        break;
-      default:
-      // code block
-    }
-  };
-
+  
   const [basketAmount, setbasketAmount] = useState('0');
   
   const [showBasket, setshowBasket] = useState(false);
   const handleBasket = (showcheck) => {
     showcheck ? setshowBasket(true) :setshowBasket(false);
+    basketAmount===0 ? setbasketAmount('0') : setbasketAmount(basketAmount) ;
   };
+  
+  const wp = useLocation().pathname.substring(1);
 
+  
   return (
     <div className="flex flex-col h-screen font-exo">
-      <Header basketAmount={basketAmount} handleBasket={handleBasket} handleNav={handleNavItemClick} page={page} />
-      <Content page={page} />
+      <Header basketAmount={basketAmount} 
+      handleBasket={handleBasket} 
+       page={wp} />
+      <Routes>
+        <Route path="/" element={<Content content="home page"/>}></Route>
+        <Route path="/order" element={<Content content="order now"/>}></Route>
+        <Route path="/menu" element={<Content content="Menu"/>}></Route>
+        <Route path="/about" element={<Content content="Our Story"/>}></Route>
+        <Route path="/login" element={<Content content="Login Form"/>}></Route>
+        <Route path="/signup" element={<Content content="SignUp Here"/>}></Route>
+        <Route path="*" element={<Content content="PageNotFound"/>}></Route>
+      </Routes>
       <Footer />
       <Modal show={showBasket} handleBasket={handleBasket}>
           <Basket/>

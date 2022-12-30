@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import Modal from "./components/Modal";
 import Basket from "./components/Basket";
+import HomePage from "./components/HomePage";
 import {Routes, Route, useLocation} from "react-router-dom";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
       handleBasket={handleBasket} 
        page={wp} />
       <Routes>
-        <Route path="/" element={<Content content="home page"/>}></Route>
+        <Route path="/" element={<HomePage />}></Route>
         <Route path="/order" element={<Content content="order now"/>}></Route>
         <Route path="/menu" element={<Content content="Menu"/>}></Route>
         <Route path="/about" element={<Content content="Our Story"/>}></Route>

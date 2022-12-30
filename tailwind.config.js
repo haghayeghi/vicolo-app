@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+          backgroundImage: {
+      'huge-logo': "url('/src/assets/huge-logo.svg')",
+    },
       fontFamily: {
         exo: ['Exo'],
       },
@@ -18,13 +21,13 @@ module.exports = {
         '5xl': '3.052rem',
       },
       colors :{
-        'primary': "#434343",
+        'primary': "#3b3b3b",
         'secondary': {
         '1':"#FF7A00",
         '2':"#FF3D00"
       },
         'gray': {
-          '1':"#FAFAFA",
+          '1':"#F8F8F8",
           '2':"#F2F2F2",
           '3':"#E4E4E4",
           '4':"#C4C4C4",
@@ -33,17 +36,19 @@ module.exports = {
       },
       boxShadow: {
         'subtle': '0 1px 20px -10px rgba(0, 0, 0, 0.3)',
+      },
+      screens: {
+        xs: "480px",
+        ss: "620px",
+        sm: "768px",
+        md: "1060px",
+        lg: "1200px",
+        xl: "14700px",
+  
+      },
+      animation: {
+        'spin-pizza': 'spin 1.5s',
       }
-    },
-
-    screens: {
-      xs: "480px",
-      ss: "620px",
-      sm: "768px",
-      md: "1060px",
-      lg: "1200px",
-      xl: "14700px",
-
     },
   },
   plugins: [

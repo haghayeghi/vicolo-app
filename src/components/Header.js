@@ -4,6 +4,8 @@ import MainBtn from "./MainBtn";
 import whiteLogo from "../assets/white-logo.svg";
 import cartIcon from "../assets/cart.svg";
 import BGTextClip from "./BGTextClip";
+import {Link} from "react-router-dom";
+
 
 function Header(props) {
 
@@ -11,7 +13,7 @@ function Header(props) {
   props.basketAmount==='0' ? basketColor=' bg-gradient-to-b from-gray-4 to-gray-5 ':basketColor='';
 
   return (
-    <div id="header" className="flex flex-row h-[96px] shadow-subtle">
+    <div id="header" className="flex flex-row h-[96px] shadow-subtle  min-w-[1280px]">
       <BGDiv id="Logo" className=" h-[96px] w-[260px]">
         <img className="ml-[59px] pt-[32px]  " src={whiteLogo} alt="Vicolo22" />
       </BGDiv>
@@ -19,28 +21,28 @@ function Header(props) {
       <div id="Nav" className="flex-auto items-center">
         <ul className="flex pt-[36px] m-auto w-max text-primary">
           <li className="mx-6 w-[80px]">
-            <ALink clickHandler={(e) => props.handleNav(1)} title="Home" status={props.page === 1 ? true : false} />
+            <Link to="/"><ALink title="Home" status={props.page === '' ? true : false} /></Link>
           </li>
           <li className="mx-6 w-[120px]">
-            <ALink clickHandler={(e) => props.handleNav(2)} title="Order Now" status={props.page === 2 ? true : false} />
+          <Link to="/order"><ALink title="Order Now" status={props.page === 'order' ? true : false} /></Link>
           </li>
           <li className="mx-6 w-[60px]">
-            <ALink clickHandler={(e) => props.handleNav(3)} title="Menu" status={props.page === 3 ? true : false} />
+          <Link to="/menu"><ALink title="Menu" status={props.page === 'menu' ? true : false} /></Link>
           </li>
           <li className="mx-6 w-[100px]">
-            <ALink clickHandler={(e) => props.handleNav(4)} title="Our Story" status={props.page === 4 ? true : false} />
+          <Link to="/about"><ALink title="Our Story" status={props.page === 'about' ? true : false} /></Link>
           </li>
         </ul>
       </div>
 
       <div id="Right" className="">
-        <MainBtn className="mt-[24px] mr-4 " clickHandler={(e) => props.handleNav(5)} status={'white'}>
+      <Link to="/login"><MainBtn className="mt-[24px] mr-4 " status={'white'}>
           Login
-        </MainBtn>
-        <MainBtn className="mt-[24px]" clickHandler={(e) => props.handleNav(6)} status={'dark'}>
+        </MainBtn></Link>
+        <Link to="/signup"><MainBtn className="mt-[24px]" status={'dark'}>
           SignUp
-        </MainBtn>
-        <div className="float-right flex flex-row mt-[24px] mx-6 h-[42px] w-[150px]">
+        </MainBtn></Link>
+        <div className="float-right flex flex-row mt-[24px] mx-6 h-[42px] w-[120px]">
           <BGTextClip className="font-semibold text-2xl pt-[1px]">|</BGTextClip>
           <MainBtn className={`${basketColor} w-8 h-8 pt-1 pl-0 pr-0 ml-4 mt-[3px] text-center`} clickHandler={(e) => props.handleBasket(true)} status={'color'}>
           {props.basketAmount}

@@ -33,7 +33,7 @@ const Basket = (props) => {
       <div  id="container" className="flex m-auto">
         <div id="closeBtn">
           <MainBtn className=" h-[64px] w-[64px] rounded-none px-0 text-center" clickHandler={(e) => props.handleBasket(false)} status={"color"}>
-            <img src={closeIcon} className="scale-[1.7]" alt="close" />
+            <img src={closeIcon} className="m-auto" alt="close" />
           </MainBtn>
         </div>
         <div id="ModalContent">{props.children}</div>

@@ -1,5 +1,7 @@
 import CatItem from "./CatItem";
-import ItemList from "./ItemList";
+import List from "./List";
+import SortChoices from "./SortChoices";
+import { useState } from "react";
 
 import { ReactComponent as LogoCatAll } from "../assets/logo-cat-all.svg";
 import { ReactComponent as LogoCatPizza } from "../assets/logo-cat-pizza.svg";
@@ -29,9 +31,15 @@ const Order = () => {
 
   checkItemTitle === false && (itemTitle = "All");
 
+  const [sortStatus, setSortStatus] = useState(1);
+
+  const sortClickHandler = (w) => {
+    setSortStatus(w);
+  };
+
   return (
-    <div className="grid grid-col-1 container  mx-auto my-10 bg-huge-logo bg-no-repeat bg-right-top">
-      <div id="categories" className="m-auto flex">
+    <div className="flex-1 grid container m-auto my-10 bg-huge-logo bg-no-repeat bg-right-top">
+      <div id="categories" className="m-auto flex ">
         {catArray.map((e) => {
           return (
             <CatItem key={e.id} title={e.title} active={itemTitle === e.title ? "True" : "False"}>
@@ -40,8 +48,11 @@ const Order = () => {
           );
         })}
       </div>
-      <div id="itemList" className="m-auto mt-10">
-        <ItemList itemTitle={itemTitle} />
+      <div id="SortChoices" className="m-auto mt-8 w-full">
+        <SortChoices sortS={sortStatus} sortClickHandler={sortClickHandler} />
+      </div>
+      <div id="itemList" className="m-auto w-full">
+        <List itemTitle={itemTitle} sortType={sortStatus} />
       </div>
     </div>
   );

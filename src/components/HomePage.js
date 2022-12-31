@@ -1,12 +1,12 @@
 import MainBtn from "./MainBtn";
 import arrow from "../assets/arrow.svg";
-import pizza1 from "../assets/foods/pizza-1-huge.png";
+import pizza1 from "../assets/pizza-1-huge.png";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <div className="flex flex-row container  mx-auto flex-grow my-10 bg-huge-logo bg-no-repeat bg-right-top">
-      <div className="basis-1/2 mt-[120px;] mr-5">
+      <div className="basis-1/2 mt-[120px;] pl-[60px]">
         <p className="text-gray-4 text-xl">At Vicolo 22 Italian restaurant</p>
         <p className="text-primary mt-2 mb-4 text-5xl font-black">Enjoy Delicious Food at Popular Prices</p>
         <Link to="/order/All">

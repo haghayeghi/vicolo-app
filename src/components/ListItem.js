@@ -1,18 +1,29 @@
 import MainBtn from "./MainBtn";
 import FavStar from "./FavStar";
 import Heart from "./Heart";
+import { useState } from "react";
 
 const ListItem = (props) => {
+  const [heartState, setHeartState] = useState(props.heart);
+
+  const clickHeartHandler = (wh, hID) => {
+    if (wh === "full") {
+      setHeartState(false);
+    } else {
+      setHeartState(true);
+    }
+  };
+
   return (
     <div>
       <div className="w-[215px] group" key={props.itemId}>
         <div className="absolute mt-[23px] ml-[21px]">
-          <Heart heartStatus={props.heart} />
+          <Heart heartID={props.itemID} clickHeart={clickHeartHandler} heartStatus={heartState} />
         </div>
-        <div className="group-hover:shadow-lg  flex h-[215px] w-[215px] rounded-full border-4 border-solid border-gray-3  ">
+        <button className="group-hover:shadow-lg  flex h-[215px] w-[215px] rounded-full border-4 border-solid border-gray-3  ">
           <img className="m-auto" alt="" src={props.imageUrl} />
-        </div>
-        <div className="text-center font-semibold text-2xl mt-4 text-primary">{props.title}</div>
+        </button>
+        <div className="text-center font-semibold text-xl mt-4 mb-1 text-primary">{props.title}</div>
 
         <div className=" flex m-auto">
           <div className="flex m-auto">
@@ -24,7 +35,13 @@ const ListItem = (props) => {
         </div>
       </div>
       <div className="text-center m-auto mt-4">
-        <MainBtn status="white" className="group flex m-auto ">
+        <MainBtn
+          clickHandler={() => {
+            props.showFoodHandler(props);
+          }}
+          status="white"
+          className="group flex m-auto "
+        >
           <div className="pr-2 text-secondary-1 group-hover:text-white">+</div>
           <div>Add to Cart</div>
         </MainBtn>

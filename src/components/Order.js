@@ -1,6 +1,7 @@
 import CatItem from "./CatItem";
 import List from "./List";
 import SortChoices from "./SortChoices";
+import ShowFood from "./ShowFood";
 import { useState } from "react";
 
 import { ReactComponent as LogoCatAll } from "../assets/logo-cat-all.svg";
@@ -10,8 +11,17 @@ import { ReactComponent as LogoCatPasta } from "../assets/logo-cat-pasta.svg";
 import { ReactComponent as LogoCatSteak } from "../assets/logo-cat-steak.svg";
 import { ReactComponent as LogoCatDrink } from "../assets/logo-cat-drink.svg";
 import { useParams } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "react-query";
 
 const Order = () => {
+  const queryClient = new QueryClient();
+
+  const [foodProps, setfoodProps] = useState([]);
+
+  const showFoodHandler = (wf) => {
+    setfoodProps(wf);
+  };
+
   const catArray = [
     { id: 1, title: "All", image: <LogoCatAll className="m-auto" /> },
     { id: 2, title: "Pizza", image: <LogoCatPizza className="m-auto" /> },
@@ -48,11 +58,18 @@ const Order = () => {
           );
         })}
       </div>
+      {foodProps.length !== 0 && (
+        <div id="ShowFood" className="m-auto mt-8 w-full">
+          <ShowFood food={foodProps} />
+        </div>
+      )}
       <div id="SortChoices" className="m-auto mt-8 w-full">
         <SortChoices sortS={sortStatus} sortClickHandler={sortClickHandler} />
       </div>
       <div id="itemList" className="m-auto w-full">
-        <List itemTitle={itemTitle} sortType={sortStatus} />
+        <QueryClientProvider client={queryClient}>
+          <List itemTitle={itemTitle} sortType={sortStatus} showFoodHandler={showFoodHandler} />
+        </QueryClientProvider>
       </div>
     </div>
   );

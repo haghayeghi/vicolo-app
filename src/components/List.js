@@ -1,20 +1,52 @@
 import ListItem from "./ListItem";
-import pizza1 from "../assets/foods/pizzaSmall1.png";
-import pizza2 from "../assets/foods/pizzaSmall2.png";
-import pizza3 from "../assets/foods/pizzaSmall3.png";
-import pizza4 from "../assets/foods/pizzaSmall4.png";
+import { useQuery } from "react-query";
+import loading from "../assets/loading.svg";
 
 const List = (props) => {
+  const fetchFoods = async () => {
+    const response = await fetch("https://haghayeghi.github.io/vicolo.json");
+    return response.json();
+  };
+
+  const { data, isLoading, isError } = useQuery("foodItems", fetchFoods);
+
+  if (isLoading) {
+    return (
+      <div className="flex mb-5 px-[10px]">
+        <img className="m-auto h-[65px]" src={loading} alt="loading" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex mb-5 px-[10px]">
+        <div className="m-auto h-[65px]">Error ...</div>
+      </div>
+    );
+  }
+
   return (
     <>
       {/* {props.itemTitle} - {props.sortType} */}
       <div id="list" className="grid grid-cols-4 gap-10 mt-10 px-[100px]">
-        <ListItem itemID="2" imageUrl={pizza1} title="Pizza Mixed" star="3" vote="43" heart={false} />
-        <ListItem itemID="2" imageUrl={pizza2} title="Pizza Mixed" star="3" vote="43" heart={false} />
-        <ListItem itemID="2" imageUrl={pizza3} title="Pizza Mixed" star="3" vote="43" heart={true} />
-        <ListItem itemID="2" imageUrl={pizza3} title="Pizza Mixed" star="3" vote="43" heart={false} />
-        <ListItem itemID="2" imageUrl={pizza4} title="Pizza Mixed" star="3" vote="43" heart={false} />
-        <ListItem itemID="2" imageUrl={pizza4} title="Pizza Mixed" star="3" vote="43" heart={false} />
+        {data.results.map((result) => (
+          <ListItem
+            key={result.id}
+            itemID={result.id}
+            imageUrl={result.image}
+            title={result.name}
+            star={result.star}
+            vote={result.comments}
+            heart={result.heart}
+            catid={result.catid}
+            readytime={result.readytime}
+            priceS={result.price.S}
+            priceM={result.price.M}
+            priceL={result.price.L}
+            showFoodHandler={props.showFoodHandler}
+          />
+        ))}
       </div>
     </>
   );

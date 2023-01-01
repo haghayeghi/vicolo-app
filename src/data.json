@@ -1,0 +1,40 @@
+{
+  "info": {
+    "count": 2,
+    "pages": 1,
+    "next": null,
+    "prev": null
+  },
+  "results": [
+    {
+      "id": "1",
+      "catid": "3",
+      "image": "",
+      "name": "HANDSOME BURGER",
+      "hear": true,
+      "star": 3,
+      "comments": 137,
+      "readytime": "15 min",
+      "price": {
+        "S": 2,
+        "M": 0,
+        "L": 0
+      }
+    },
+    {
+      "id": "2",
+      "catid": "1",
+      "image": "",
+      "name": "Pizza Peperoni",
+      "hear": true,
+      "star": 2,
+      "comments": 5,
+      "readytime": "30 min",
+      "price": {
+        "S": 10,
+        "M": 12,
+        "L": 15
+      }
+    }
+  ]
+}

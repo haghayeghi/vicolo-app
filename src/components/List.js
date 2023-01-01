@@ -34,7 +34,8 @@ const List = (props) => {
           <ListItem
             key={result.id}
             itemID={result.id}
-            imageUrl={result.image}
+            image={result.image}
+            bigimage={result.bigimage}
             title={result.name}
             star={result.star}
             vote={result.comments}
@@ -45,6 +46,7 @@ const List = (props) => {
             priceM={result.price.M}
             priceL={result.price.L}
             showFoodHandler={props.showFoodHandler}
+            itemClicked={true}
           />
         ))}
       </div>

@@ -9,22 +9,32 @@ import Order from "./components/Order";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
-  const [basketAmount, setbasketAmount] = useState("0");
+  const wp = useLocation().pathname.substring(1);
+  const [cartItems, setCartItems] = useState([]);
+
+  const addCartHandler = (pm) => {
+    setCartItems((cartItems) => [...cartItems, pm]);
+  };
+  const basketAmount = cartItems.length;
 
   const [showBasket, setshowBasket] = useState(false);
   const handleBasket = (showcheck) => {
     showcheck ? setshowBasket(true) : setshowBasket(false);
-    basketAmount === 0 ? setbasketAmount("0") : setbasketAmount(basketAmount);
   };
 
-  const wp = useLocation().pathname.substring(1);
+  const handlDelIem = (ii) => {
+    // setCartItems((cartItems) => cartItems.splice(ii, 1));
 
+    const temp = [...cartItems];
+    temp.splice(ii, 1);
+    setCartItems(temp);
+  };
   return (
     <div className="flex flex-col h-screen font-exo">
       <Header basketAmount={basketAmount} handleBasket={handleBasket} page={wp} />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/order" element={<Order />}>
+        <Route path="/order" element={<Order addCartHandler={addCartHandler} />}>
           <Route path=":itemTitle" element={<Order />}></Route>
         </Route>
         <Route path="/menu" element={<Content content="Menu - Not Prepared in This Version!" />}></Route>
@@ -35,7 +45,7 @@ function App() {
       </Routes>
       <Footer />
       <Modal show={showBasket} handleBasket={handleBasket}>
-        <Basket />
+        <Basket handlDelIem={handlDelIem} data={cartItems} />
       </Modal>
     </div>
   );

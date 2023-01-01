@@ -2,7 +2,7 @@ import CatItem from "./CatItem";
 import List from "./List";
 import SortChoices from "./SortChoices";
 import ShowFood from "./ShowFood";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ReactComponent as LogoCatAll } from "../assets/logo-cat-all.svg";
 import { ReactComponent as LogoCatPizza } from "../assets/logo-cat-pizza.svg";
@@ -13,7 +13,7 @@ import { ReactComponent as LogoCatDrink } from "../assets/logo-cat-drink.svg";
 import { useParams } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 
-const Order = () => {
+const Order = (props) => {
   const queryClient = new QueryClient();
 
   const [foodProps, setfoodProps] = useState([]);
@@ -47,6 +47,10 @@ const Order = () => {
     setSortStatus(w);
   };
 
+  useEffect(() => {
+    setfoodProps([]);
+  }, [itemTitle]);
+
   return (
     <div className="flex-1 grid container m-auto my-10 bg-huge-logo bg-no-repeat bg-right-top">
       <div id="categories" className="m-auto flex ">
@@ -60,7 +64,7 @@ const Order = () => {
       </div>
       {foodProps.length !== 0 && (
         <div id="ShowFood" className="m-auto mt-8 w-full">
-          <ShowFood food={foodProps} />
+          <ShowFood food={foodProps} addCartHandler={props.addCartHandler} />
         </div>
       )}
       <div id="SortChoices" className="m-auto mt-8 w-full">

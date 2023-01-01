@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Header(props) {
   let basketColor = "";
-  props.basketAmount === "0" ? (basketColor = " bg-gradient-to-b from-gray-4 to-gray-5 ") : (basketColor = "");
+  props.basketAmount === 0 ? (basketColor = " bg-gradient-to-b from-gray-4 to-gray-5 ") : (basketColor = "");
 
   return (
     <div id="header" className="flex flex-row h-[96px] shadow-subtle  min-w-[1280px]">
@@ -57,7 +57,7 @@ function Header(props) {
           <MainBtn className={`${basketColor} w-8 h-8 pt-1 pl-0 pr-0 ml-4 mt-[3px] text-center`} clickHandler={(e) => props.handleBasket(true)} status={"color"}>
             {props.basketAmount}
           </MainBtn>
-          <img src={cartIcon} className="ml-2 h-[28px] mt-[6px]" alt="cart" />
+          <img src={cartIcon} className="fill-primary ml-2 h-[24px] mt-[10px]" alt="cart" />
         </div>
       </div>
     </div>

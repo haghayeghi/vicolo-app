@@ -20,8 +20,13 @@ const ListItem = (props) => {
         <div className="absolute mt-[23px] ml-[21px]">
           <Heart heartID={props.itemID} clickHeart={clickHeartHandler} heartStatus={heartState} />
         </div>
-        <button className="group-hover:shadow-lg  flex h-[215px] w-[215px] rounded-full border-4 border-solid border-gray-3  ">
-          <img className="m-auto" alt="" src={props.imageUrl} />
+        <button
+          onClick={() => {
+            props.showFoodHandler(props);
+          }}
+          className="group-hover:shadow-lg  flex h-[215px] w-[215px] rounded-full border-4 border-solid border-gray-3  "
+        >
+          <img className="m-auto" alt="" src={props.image} />
         </button>
         <div className="text-center font-semibold text-xl mt-4 mb-1 text-primary">{props.title}</div>
 

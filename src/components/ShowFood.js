@@ -77,7 +77,7 @@ const ShowFood = (props) => {
       <div className="bg-white pt-[50px] w-full flex flex-row">
         <div id="LeftCol" className="basis1/2">
           <div className="p-5 border-[8px] border-solid border-gray-2 rounded-full">
-            <img src={props.food.bigimage} alt={props.food.title} width="400px" height="400px" />
+            <img src={props.food.image} alt={props.food.title} width="400px" height="400px" />
           </div>
         </div>
         <div id="RightCol" className="basis1/2 pl-[25px]">

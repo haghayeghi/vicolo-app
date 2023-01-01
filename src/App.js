@@ -13,8 +13,22 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addCartHandler = (pm) => {
-    setCartItems((cartItems) => [...cartItems, pm]);
+    const itemId = pm[0];
+    const itemSize = pm[3];
+    const item = cartItems.filter((e) => (e[0] === itemId) & (e[3] === itemSize));
+    const existItem = item.length;
+
+    if (existItem === 0) {
+      setCartItems((cartItems) => [...cartItems, pm]);
+    }
   };
+
+  const handlDelIem = (ii) => {
+    const temp = [...cartItems];
+    temp.splice(ii, 1);
+    setCartItems(temp);
+  };
+
   const basketAmount = cartItems.length;
 
   const [showBasket, setshowBasket] = useState(false);
@@ -22,13 +36,6 @@ function App() {
     showcheck ? setshowBasket(true) : setshowBasket(false);
   };
 
-  const handlDelIem = (ii) => {
-    // setCartItems((cartItems) => cartItems.splice(ii, 1));
-
-    const temp = [...cartItems];
-    temp.splice(ii, 1);
-    setCartItems(temp);
-  };
   return (
     <div className="flex flex-col h-screen font-exo">
       <Header basketAmount={basketAmount} handleBasket={handleBasket} page={wp} />

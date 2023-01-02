@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/vicolo-app/static/css/main.c0e7e90a.css",
+    "main.js": "/vicolo-app/static/js/main.6bc0a4a1.js",
+    "static/media/pizza-1-huge.png": "/vicolo-app/static/media/pizza-1-huge.1347bf611fbfd97e9971.png",
+    "static/media/logo-cat-burger.svg": "/vicolo-app/static/media/logo-cat-burger.4449d9bdf95bf87f20f5bd7be14603e6.svg",
+    "static/media/star_full.svg": "/vicolo-app/static/media/star_full.35352b711d30e187bc00b27256a105ae.svg",
+    "static/media/logo-cat-pasta.svg": "/vicolo-app/static/media/logo-cat-pasta.d42c6c7072a1aeee36a0e84a68f9ebf0.svg",
+    "static/media/huge-logo.svg": "/vicolo-app/static/media/huge-logo.372f731ad0b9512ebdc3.svg",
+    "static/media/logo-cat-pizza.svg": "/vicolo-app/static/media/logo-cat-pizza.74c40f09fec56413d15e923df10f966e.svg",
+    "static/media/logo-cat-drink.svg": "/vicolo-app/static/media/logo-cat-drink.0efd036cbf4d1c268412e9e41e8443c7.svg",
+    "static/media/star_empty.svg": "/vicolo-app/static/media/star_empty.f8d2315b532608d223667af1386916f8.svg",
+    "static/media/color-logo.svg": "/vicolo-app/static/media/color-logo.ecd6f9d58572e6d316d6ea4d0bd4e485.svg",
+    "static/media/logo-cat-steak.svg": "/vicolo-app/static/media/logo-cat-steak.fe5cf801247df0d37138a3db63198a23.svg",
+    "static/media/white-logo.svg": "/vicolo-app/static/media/white-logo.14eb10eb9d468068e4243a17dfe25bc2.svg",
+    "static/media/heart_empty.svg": "/vicolo-app/static/media/heart_empty.51aea7446e256aa1532d7016c358b28f.svg",
+    "static/media/loading.svg": "/vicolo-app/static/media/loading.890b7a09f42fcf5ad1fcba947f48f86e.svg",
+    "static/media/heart_full.svg": "/vicolo-app/static/media/heart_full.99436e5c2cbaa21bc267627ff7be492a.svg",
+    "static/media/cart.svg": "/vicolo-app/static/media/cart.765a8f39bd27f9760a0e6bac8b09244c.svg",
+    "static/media/cart-white.svg": "/vicolo-app/static/media/cart-white.a5c31b0de6376beaf7c997534b26b439.svg",
+    "static/media/clock.svg": "/vicolo-app/static/media/clock.677afaa2ab7919243f6179482d99ace6.svg",
+    "index.html": "/vicolo-app/index.html",
+    "static/media/logo-cat-all.svg": "/vicolo-app/static/media/logo-cat-all.879a090b73fd0af55e5f16e3ac974526.svg",
+    "static/media/bigger.svg": "/vicolo-app/static/media/bigger.f2d194e90d730e343088e83197f6f6ea.svg",
+    "static/media/delete.svg": "/vicolo-app/static/media/delete.e48fb999782982d7c3860b1f07551f1b.svg",
+    "static/media/arrow.svg": "/vicolo-app/static/media/arrow.298f23f9ac4163c690c8e3b934290982.svg",
+    "static/media/closeIcon.svg": "/vicolo-app/static/media/closeIcon.df21d1751dbf57313dd0e93a5f8c4d79.svg",
+    "main.c0e7e90a.css.map": "/vicolo-app/static/css/main.c0e7e90a.css.map",
+    "main.6bc0a4a1.js.map": "/vicolo-app/static/js/main.6bc0a4a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0e7e90a.css",
+    "static/js/main.6bc0a4a1.js"
+  ]
+}
